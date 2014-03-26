@@ -15,7 +15,6 @@
     },
     "autoload": {
         "psr-0": {
-            "Fwk\\Core": "vendor/fwk/core",
             "FwkTwig": "src"
         }
     }
