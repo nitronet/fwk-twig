@@ -47,7 +47,9 @@ Define a ```Twig_Environment``` instance in your [Di](https://github.com/fwk/Di)
 Registers a new ResultType in fwk.xml:
 
 ``` xml
-<result-type name="twig" class="FwkTwig\TwigResultType" />
+<result-type name="twig" class="FwkTwig\TwigResultType">
+    <param name="twigService">twig</param>
+</result-type>
 ```
 
 ### 4: Enjoy!
