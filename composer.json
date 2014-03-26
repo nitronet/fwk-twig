@@ -1,0 +1,22 @@
+{
+    "name": "fwk/fwk-twig",
+    "license": "BSD",
+    "authors": [
+        {
+            "name": "neiluJ",
+            "email": "julien@nitronet.org"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.0",
+        "fwk/core": "dev-master",
+        "twig/twig": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Fwk\\Core": "vendor/fwk/core",
+            "FwkTwig": "src"
+        }
+    }
+}
