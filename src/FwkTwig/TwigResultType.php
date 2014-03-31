@@ -54,6 +54,13 @@ class TwigResultType implements ResultType, ServicesAware
         } 
         
         $file = $params['file'];
+        if (strpos($file, ':', 0) !== false) {
+            $paramName = substr($file, 1);
+            if (isset($actionData[$paramName])) {
+                $file = $actionData[$paramName];
+            }
+        }
+        
         $twig = $this->getServices()->get($this->params['twigService']);
         
         return new Response($twig->render($file, $actionData));
