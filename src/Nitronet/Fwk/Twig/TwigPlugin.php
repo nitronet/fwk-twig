@@ -15,6 +15,7 @@ class TwigPlugin implements Plugin
     {
         $this->config = array_merge(array(
             'directory'     => null,
+            'debug'         => false,
             'twig'          => array(),
             'typeName'      => 'twig',
             'serviceName'   => 'twig'
@@ -23,16 +24,25 @@ class TwigPlugin implements Plugin
 
     public function loadServices(Container $container)
     {
+        // twig loader
         $defLoader = new ClassDefinition('\Twig_Loader_Filesystem', array(
             $this->cfg('directory', null)
         ));
         $container->set('twig.Loader', $defLoader);
 
+        // twig
         $defTwig = new ClassDefinition('\Twig_Environment', array(
             '@twig.Loader',
             $this->cfg('twig', array())
         ));
         $container->set($this->cfg('serviceName', 'twig'), $defTwig);
+
+        // debug
+        if ($this->cfg('debug', false) == true) {
+            $defDebugExt = new ClassDefinition('\Twig_Extension_Debug');
+            $container->set('twig.DebugExtension', $defDebugExt);
+            $defTwig->addMethodCall('addExtension', array('@twig.DebugExtension'));
+        }
     }
 
     public function onResultTypeServiceLoaded(ResultTypeServiceLoadedEvent $event)
