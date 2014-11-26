@@ -1,5 +1,5 @@
 <?php
-namespace FwkTwig;
+namespace Nitronet\Fwk\Twig;
 
 use Fwk\Core\Components\ResultType\ResultType;
 use Symfony\Component\HttpFoundation\Response;
