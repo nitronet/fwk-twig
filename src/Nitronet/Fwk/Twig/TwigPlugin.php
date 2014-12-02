@@ -35,7 +35,7 @@ class TwigPlugin implements Plugin
             '@twig.Loader',
             $this->cfg('twig', array())
         ));
-        $container->set($this->cfg('serviceName', 'twig'), $defTwig);
+        $container->set($this->cfg('serviceName', 'twig'), $defTwig, true);
 
         // debug
         if ($this->cfg('debug', false) == true) {
