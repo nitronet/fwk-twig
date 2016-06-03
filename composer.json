@@ -10,7 +10,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.0",
-        "fwk/core": "dev-master",
+        "fwk/core": "1.*",
         "twig/twig": "dev-master"
     },
     "autoload": {
